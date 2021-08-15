@@ -78,9 +78,32 @@ public class ObjectData {
         return b == 1;
     }
 
+/***************************** Added **********************************/
+
+    private byte[] intToByteArray( int data ) {
+        byte[] result = new byte[4];
+        result[0] = (byte) ((data & 0xFF000000) >> 24);
+        result[1] = (byte) ((data & 0x00FF0000) >> 16);
+        result[2] = (byte) ((data & 0x0000FF00) >> 8);
+        result[3] = (byte) ((data & 0x000000FF) >> 0);
+        return result;
+    }
+
     public byte[] getBytes() {
+
+
+        if(data instanceof Integer){
+//            System.out.println("Sign Value: "+ data);
+//            return intToByteArray((Integer) data);
+            return new byte[]{};
+        }
+
         return (byte[])data;
     }
+
+
+    /********************************************************************/
+
 
     /**
      * If the data representes a nested structure (stored as a byte array),

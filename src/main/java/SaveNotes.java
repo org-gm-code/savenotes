@@ -554,6 +554,9 @@ public class SaveNotes {
                     assert ind == null;
                     debug("uuid %s type %s ", uuid, utype);
                     break;
+                case 13:
+                    debug("unknown attribute");
+                    break;
                 default:
                     err("Unexpected attribute data: %d%n%s",
                             ad.index(), bytesToHex(ad.getBytes()));
